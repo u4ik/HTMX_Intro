@@ -1,0 +1,25 @@
+{{block "index" .}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- <h1>My Name is {{ .Name}}</h1> -->
+    <!-- <p>This counter will increase on each page load?: {{ .Count}}</p> -->
+
+    <div id="count">
+        {{ template "count" . }}
+    </div>
+    <button style="padding: 1em" hx-target="#count" hx-post="/count">Count Increase</button>
+</body>
+
+</html>
+
+{{end}} {{block "count" .}} Count {{.Count}} {{end}}
